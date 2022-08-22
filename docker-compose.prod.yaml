@@ -1,0 +1,54 @@
+version: "3.9"
+services:
+  mongodb:  
+    image: 'mongo:4'
+    container_name: ${PROJECT_NAME}_mongodb
+    volumes:
+      - mongodb-data:/data/db #named volume to persist data
+    restart: always  
+    env_file: 
+      - ./.env 
+    # ports:
+    #   - "27017:27017" # don't expose mongodb port on production unless needed
+
+  rabbitmq:
+    image: "rabbitmq:3.8"
+    hostname: '${PROJECT_NAME}_rabbitmq'
+    container_name: ${PROJECT_NAME}_rabbitmq
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq/mnesia/ #named volume to persist data
+    restart: always
+    env_file: 
+      - ./.env
+    # ports: 
+    #   - "5672:5672"  # don't expose queue port on production unless needed
+
+  server:
+    build:
+      context: .
+      dockerfile: dockerfile.prod
+      args:
+        -PORT: ${PORT:-3000}
+    container_name: ${PROJECT_NAME:?Please provide project name in env file}_server #throw error if project name not provide in .env
+    volumes:
+      - server-logs:/app/logs #named volume to persist logs
+      - /app/node_modules #anonymous volume to stop override of node moudles when copying
+    depends_on:
+      - mongodb
+      - rabbitmq  
+    restart: always
+    env_file: 
+      - ./.env
+    environment:
+      - RMQ_CONN_URL=amqp://rabbitmq:5672
+      - MONGO_URI=mongodb://mongodb:27017/${PROJECT_NAME}
+    ports:
+      - "${PORT:-3000}:${PORT:-3000}" #Fetch from .env or default to 3000
+
+volumes:
+  mongodb-data:
+    name: ${PROJECT_NAME}_mongodb-data
+  rabbitmq-data:
+    name: ${PROJECT_NAME}_rabbitmq-data
+  server-logs:
+    name: ${PROJECT_NAME}_server-logs

@@ -1,0 +1,19 @@
+FROM node:16
+
+WORKDIR /app
+
+COPY package.json .
+
+RUN npm install
+
+COPY . .
+
+ARG PORT
+
+EXPOSE $PORT
+
+# Uncomment below line if waiting is not needed(If Rabitmq not used)
+# CMD ["npm","run","dev"] 
+
+# Uncomment below line if waiting is  needed(If Rabitmq  used)
+CMD ["sh","-c", "./wait_for_queue.sh && npm start"]

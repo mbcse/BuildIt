@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket</title>
+        <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *;**script-src 'self' http://onlineerp.solution.quebec 'unsafe-inline' 'unsafe-eval';** ">-->
+
+	<link rel="icon" type="image/png" href="/frontend/assets/img/favicon.png">
+
+    <%- include('../includes/landingPage/headFiles')%>
+
+</head>
+<body>
+
+
+
+<div class="wrapper">
+
+    <div class="header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-3 col-6">
+                    <div class="site-logo">
+                        <a href="/" rel="noopener noreferrer">EventOnChain</a>
+                    </div>
+                </div>
+                <div class="col-md-9 col-6">
+                    <div class="d-flex align-items-center justify-content-end">
+                    <nav class="nav_area">
+                        <label for="" class="toggle"><i class="fa fa-bars"></i></label>
+                        <ul class="menu">
+                            <li class="active"><a href="/">Home</a></li>
+                            <li><a href="/">About Us</a></li>
+                            <li><a href="/">Browse</a></li>
+                            <li><a href="/">FAQ</a></li>
+                            <li><a href="/">Contact</a></li>                          
+                            <li class="" >
+                                
+                            </li>
+                        </ul>
+
+                        
+                    </nav>
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#login">
+                        LogIn/SignUp
+                    </button>
+                        <!-- Modal -->
+                            <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="text-right">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true"><i class="fa fa-times"></i></span>
+                                    </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row ">
+                                            <div class="col-md-6 px-4 px-md-5 py-md-4">
+
+                                                <div class="text-center">
+                                                    <h2 class="bold pb-4">LogIn/SignUp</h2>
+                                                    <span class="divider2 justify-content-center"><i aria-hidden="true" class="fas fa-circle"></i></span>
+                                                </div>
+
+                                                <form class="login-signup-form" id="user-login-signup">
+                                                    <label for="user_email">Email Address</label>
+                                                    <input type="email" id="user_email" name="email" required="required" placeholder="Enter your email">
+                                                    <small>Collecting email for future updates &amp; communication</small>
+                                                    <button type="button" id="email-login-button" class="btn mt-5">Continue with email</button>
+                                                    <small>Yes, you can buy NFTs without any wallet by using only email</small>
+                                                    <h5 class="or-text py-4 text-center">OR</h5>
+                                                    <button type="button" class="btn" id="connect-wallet-button">Connect Metamask Wallet</button>
+                                                    <h5 class="or-text py-4 text-center">OR</h5>
+                                                    <button type="button" class="btn" id="sequence-wallet-button">Connect Sequence Wallet</button>
+
+                                                </form>
+
+                                                <!-- OTP -->
+                                                <form id="OtpForm" style="display:none;" onsubmit="return loginOtp()">
+            
+                                                    <p class="login-username" style="position:relative;">
+                                                        <label for="username">Please enter OTP</label>
+                                                        <i class="fa fa-key" aria-hidden="true"></i>
+                                                        <input id="otp" type="text" name="otp" placeholder="OTP" required="">
+                                                    </p>
+                                                    
+                                                    
+                                                    <div class="row-buttons">
+                                                        <p class="login-submit">
+                                                            <input id="current_user_email" type="hidden" name="current_user_email" required="">
+                                                            <input class="submit_button" type="submit" value="Submit" name="submit">
+                                                        </p>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                    
+                                                </form>
+                                                <!-- end OTP -- >-->    
+                                            </div>
+
+
+                                            <div class="col-md-6 py-5 border-left px-md-5 py-md-4">
+                                                <img src="/frontend/assets/img/home2.jpg" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                </div>
+                            </div>
+                   
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="main">
+        <div class="home-banner pt-5">
+            <div class="container pt-md-5 mt-md-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-7 text-center">
+                        <h1 class="text-center bold fs-52 pb-5">The Multichain <br> NFT Based<br> Event Management and Ticketing Platform is Here</h1>
+                        <h4 class="regular fs-21 pb-5">We have completely reimagined the event management experience using blockchain so you can get to work and focus on what you do best.</h4>
+                        <a href="#" class="btn">Get Started</a>
+                    
+                        <div class="text-center pt-3">
+                            <img src="/frontend/assets/img/dashboardImages/img3.png" alt="">
+                        </div>
+                
+                    </div>
+                    </div>
+            </div>
+        </div>
+
+
+        <div class="py-5">
+            <div class="py-md-5 container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="/frontend/assets/img/dashboardImages/img7.png" alt="">
+                    </div>
+
+                    <div class="col-md-6">
+                        <h5 class="semibold text-uppercase text-blue pb-4">One Click Event creation On Blockchain</h5>
+                        <span class="divider"><i aria-hidden="true" class="fas fa-circle"></i></span>
+                        <h2 class="title bold pt-4">
+                            Create events in one click and make them NFT powered
+                        </h2>
+
+                        <div class="text-justify py-5">
+                            <p></p>
+                        </div>
+
+                        <div class="list">
+                            <ul>
+                                <li>Multiple chain support like Polygon, Gnosis, Cronos</li>
+                                <li>Onchain CheckIn</li>
+                                <li>Lifetime NFT Tickets</li>
+                                <li>NFT's with value</li>
+                                <li>Easy to Use</li>
+                            </ul>
+                        </div>
+
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="pt-5 why-section">
+            <div class="container text-center py-md-5 mb-5">
+                <h5 class="semibold text-uppercase text-blue pb-4">ALWAYS ACCESSIBLE</h5>
+                <span class="divider2 justify-content-center"><i aria-hidden="true" class="fas fa-circle"></i></span>
+                <h2 class="title bold pt-4 mb-5">
+                    Why EventOnChain?
+                </h2>
+
+                <div class="row pt-4">
+                    <div class="col-md-4">
+                        <div class="why-box">
+                            <img src="/frontend/assets/img/icon1.gif" alt="">
+                            <h4 class="semibold">Authenticity & Transparency</h4>
+                            <p class="fs-15">Unique NFT's assigned to user is best possible way to authenticate the tickets<br> <br></p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="why-box">
+                            <img src="/frontend/assets/img/icon2.gif" alt="">
+                            <h4 class="semibold">Tickets that hold some value</h4>
+                            <p class="fs-15">Tickets have burn value, burn them to buy more<br> <br></p>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-4">
+                        <div class="why-box">
+                            <img src="/frontend/assets/img/icon3.gif" alt="">
+                            <h4 class="semibold">Issue<br> Mint on blockchain of your choice</h4>
+                            <p class="fs-15">Multichain chain support-Polygon, Gnosis, Cronos</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <a href="#" class="btn">Mint Now</a>
+                </div>
+
+
+            </div>
+            <div class="elementor-shape elementor-shape-bottom" data-negative="false">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+                    <path class="elementor-shape-fill" d="M421.9,6.5c22.6-2.5,51.5,0.4,75.5,5.3c23.6,4.9,70.9,23.5,100.5,35.7c75.8,32.2,133.7,44.5,192.6,49.7
+                    c23.6,2.1,48.7,3.5,103.4-2.5c54.7-6,106.2-25.6,106.2-25.6V0H0v30.3c0,0,72,32.6,158.4,30.5c39.2-0.7,92.8-6.7,134-22.4
+                    c21.2-8.1,52.2-18.2,79.7-24.2C399.3,7.9,411.6,7.5,421.9,6.5z"></path>
+                </svg>		
+            </div>
+        </div>
+
+
+
+        <div class="py-5">
+            <div class="py-md-5 container">
+                <div class="row">
+                    <div class="col-md-6 order-md-2">
+                        <img src="/frontend/assets/img/dashboardImages/img4.png" alt="">
+                    </div>
+
+                    <div class="col-md-6 order-md-1">
+                        <h5 class="semibold text-uppercase text-blue pb-4">ALWAYS ACCESSIBLE</h5>
+                        <span class="divider"><i aria-hidden="true" class="fas fa-circle"></i></span>
+                        <h2 class="title bold pt-4">
+                            Your tickets are NFT's on blockchain which will remains always with you
+                        </h2>
+
+                        <div class="text-justify py-5">
+                            <p>So what are you waiting for?</p>
+                        </div>
+
+                        <div class="list">
+                            <ul>
+                                <li>Immutable Tickets</li>
+                                <li>Easy to verify and always remains with you until you burn</li>
+                            </ul>
+                        </div>
+
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+
+                   
+
+                </div>
+
+            </div>
+        </div>
+
+
+    
+
+
+     
+
+        <div class="footer ">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-md-6 foot-left">
+                    <!-- <h2 class="h2 medium">Trusted by</h2> -->
+                    <!-- <img src="/frontend/assets/img/antler-logo.webp" alt=""> -->
+
+                    <h2 class="h2 medium pt-4 pb-2">Built on</h2>
+                    <img src="/frontend/assets/img/polygon.svg" alt="">
+                    <img src="/frontend/assets/img/gnosis.png" alt="">
+                    <img src="/frontend/assets/img/cronos.svg" alt="">
+
+                </div>
+
+                <div class="col-md-6 text-md-right">
+                    <h2 class="h2 medium">Contact Us</h2>
+                    <div>
+                        <h5 class="mb-2 regular"><i class="fa fa-phone text-blue pr-3"></i>+91 00000 00000</h5>
+                        <h5 class="regular"><i class="fa fa-envelope text-blue pr-3"></i>eventonchain@gmail.com</h5>
+                    </div>
+
+                    <div class="social pt-5">
+                        <a href="http://" target="_blank" rel="noopener noreferrer" class="fs-21 pl-3"><i class="fab fa-facebook text-blue"></i></a>
+                        <a href="http://" target="_blank" rel="noopener noreferrer" class="fs-21 pl-3"><i class="fab fa-twitter text-blue"></i></a>
+                        <a href="http://" target="_blank" rel="noopener noreferrer" class="fs-21 pl-3"><i class="fab fa-linkedin-in text-blue"></i></a>
+                        <a href="http://" target="_blank" rel="noopener noreferrer" class="fs-21 pl-3"><i class="fa fa-envelope text-blue"></i></a>
+                    </div>
+
+                </div>                
+            </div>
+        </div><!-- END TOP FOOTER-->
+        <div class="bottom-footer py-2">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>©2022 EventOnChain. All rights reserved</p>
+                    </div>
+
+                    <div class="col-md-6 text-center text-md-right">
+                        <a href="#" class="text-white">Privacy Policy</a>
+                        <a href="#" class="text-white pl-4">Terms of Service</a>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+    </div><!-- END FOOTER-->
+
+</div>
+
+<%- include('../includes/landingPage/jsFiles')%>
+
+</body>
+</html>
